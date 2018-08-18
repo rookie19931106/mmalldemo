@@ -116,4 +116,11 @@
       now()
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getChildrenCategoryByParentId" parameterType="integer" resultMap="BaseResultMap">
+     select
+     <include refid="Base_Column_List"/>
+    FROM mmall_category
+    WHERE parent_id = #{categoryId}
+  </select>
 </mapper>
